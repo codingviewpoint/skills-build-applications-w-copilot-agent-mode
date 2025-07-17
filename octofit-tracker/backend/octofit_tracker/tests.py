@@ -5,6 +5,7 @@ class UserModelTest(TestCase):
     def test_user_creation(self):
         user = User.objects.create(username="testuser", email="testuser@example.com", password="password")
         self.assertEqual(user.username, "testuser")
+        self.assertEqual(user.email, "testuser@example.com")
 
 class TeamModelTest(TestCase):
     def test_team_creation(self):
@@ -16,6 +17,7 @@ class ActivityModelTest(TestCase):
         user = User.objects.create(username="testuser", email="testuser@example.com", password="password")
         activity = Activity.objects.create(user=user, activity_type="Running", duration="01:00:00")
         self.assertEqual(activity.activity_type, "Running")
+        self.assertEqual(activity.duration, "01:00:00")
 
 class LeaderboardModelTest(TestCase):
     def test_leaderboard_creation(self):
@@ -27,3 +29,4 @@ class WorkoutModelTest(TestCase):
     def test_workout_creation(self):
         workout = Workout.objects.create(name="Test Workout", description="Test Description")
         self.assertEqual(workout.name, "Test Workout")
+        self.assertEqual(workout.description, "Test Description")
